@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "Libro")
+@Entity(name = "Libro")
+@Table
 public class Libro {
 
     @Id
@@ -13,7 +13,7 @@ public class Libro {
     @Column(name = "Id")
     private int id;
 
-    @Column(name = "Codigo")
+    @Column(name = "id_libro")
     private String codigo;
     @Column(name = "Titulo")
     private String titulo;
