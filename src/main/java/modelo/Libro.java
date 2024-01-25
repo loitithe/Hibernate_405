@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class Libro {
     private int año;
 
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL)
-    private List<Alquiler> lista_alquiler;
+    private List<Alquiler> lista_alquiler = new ArrayList<>();
 
     public Libro() {
     }
