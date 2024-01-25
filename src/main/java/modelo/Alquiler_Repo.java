@@ -13,8 +13,9 @@ public class Alquiler_Repo implements Repositorio<Alquiler> {
 
     @Override
     public void guardar(Alquiler t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+        Transaction trx = this.session.beginTransaction();
+        session.save(t);
+        trx.commit();
     }
 
     @Override
@@ -30,14 +31,16 @@ public class Alquiler_Repo implements Repositorio<Alquiler> {
 
     @Override
     public void actualizar(Alquiler t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actualizar'");
+        Transaction trx = this.session.beginTransaction();
+        this.session.update(t);
+        trx.commit();
     }
 
     @Override
     public void eliminar(Alquiler t) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        Transaction trx = this.session.beginTransaction();
+        this.session.delete(t);
+        trx.commit();
     }
 
 }

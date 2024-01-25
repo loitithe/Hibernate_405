@@ -3,6 +3,8 @@ package modelo;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -14,12 +16,18 @@ import java.util.List;
 public class Cliente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCliente")
+    private int idCliente;
+
+    @Column(name = "dni", columnDefinition = "char(9)")
     private String dni;
+
     @Column(name = "Nombre")
     private String nombre;
-    @Column(name = "Correo")
-    private String correo;
+
+    @Column(name = "email")
+    private String email;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     List<Alquiler> listaAlquiler = new ArrayList<Alquiler>();
@@ -31,11 +39,11 @@ public class Cliente {
     public Cliente(String dni, String nombre, String correo) {
         this.dni = dni;
         this.nombre = nombre;
-        this.correo = correo;
+        this.email = correo;
     }
 
-    public String getDni() {
-        return dni;
+    public int getIdCliente() {
+        return idCliente;
     }
 
     public void setDni(String dni) {
@@ -50,12 +58,12 @@ public class Cliente {
         this.nombre = nombre;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String correo) {
+        this.email = correo;
     }
 
     public Cliente() {
@@ -71,7 +79,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente [dni=" + dni + ", nombre=" + nombre + ", correo=" + correo + ", listaAlquiler=" + listaAlquiler
+        return "Cliente [idCliente=" + idCliente + ", dni=" + dni + ", nombre=" + nombre + ", correo=" + email
                 + "]";
     }
 

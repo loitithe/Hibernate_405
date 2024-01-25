@@ -10,43 +10,48 @@ public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
-    private int id;
+    @Column(name = "idLibro")
+    private int idLibro;
 
-    @Column(name = "id_libro")
+    @Column(name = "codigo")
     private String codigo;
+
     @Column(name = "Titulo")
     private String titulo;
+
     @Column(name = "Autores")
     private String autores;
-    @Column(name = "Ano")
-    private int ano;
+
+    @Column(name = "año")
+    private int año;
 
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL)
     private List<Alquiler> lista_alquiler;
+
+    public Libro() {
+    }
+
+    @Override
+    public String toString() {
+        return "Libro [idLibro=" + idLibro + " codigo " + codigo + ", titulo=" + titulo + ", autores=" + autores
+                + ", año=" + año
+                + "]";
+    }
 
     public Libro(String codigo, String titulo, String autores, int ano) {
 
         this.codigo = codigo;
         this.titulo = titulo;
         this.autores = autores;
-        this.ano = ano;
+        this.año = ano;
     }
 
-    public int getId() {
-        return id;
+    public int getIdLibro() {
+        return idLibro;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setIdLibro(int codigo) {
+        this.idLibro = codigo;
     }
 
     public String getTitulo() {
@@ -65,12 +70,12 @@ public class Libro {
         this.autores = autores;
     }
 
-    public int getAno() {
-        return ano;
+    public int getAño() {
+        return año;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
+    public void setAño(int ano) {
+        this.año = ano;
     }
 
     public List<Alquiler> getLista_alquiler() {
@@ -84,6 +89,14 @@ public class Libro {
     public void addAlquiler(Alquiler alquiler) {
         this.lista_alquiler.add(alquiler);
 
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
 }

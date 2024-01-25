@@ -16,11 +16,11 @@ public class Alquiler {
     private int idAlquiler;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_libro")
+    @JoinColumn(name = "idLibro")
     private Libro libro;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_cliente")
+    @JoinColumn(name = "idCliente")
     private Cliente cliente;
 
     @Column(name = "Fecha")
@@ -81,7 +81,7 @@ public class Alquiler {
 
     @Override
     public String toString() {
-        return "Alquiler [idAlquiler=" + idAlquiler + ", libro=" + libro + ", cliente=" + cliente + ", fecha=" + fecha
+        return "Alquiler [idAlquiler=" + idAlquiler + ", fecha=" + fecha
                 + ", alquilado=" + alquilado + "]";
     }
 
