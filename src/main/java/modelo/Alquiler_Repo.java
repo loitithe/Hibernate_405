@@ -14,6 +14,12 @@ public class Alquiler_Repo implements Repositorio<Alquiler> {
     @Override
     public void guardar(Alquiler t) {
         Transaction trx = this.session.beginTransaction();
+        List<Alquiler> listaAlquiler = session.createQuery("FROM Alquiler", Alquiler.class).getResultList();
+        for (Alquiler alquiler : listaAlquiler) {
+            if (alquiler.equals(t)) {
+                t.setAlquilado(!t.isAlquilado());
+            }
+        }
         session.save(t);
         trx.commit();
     }
