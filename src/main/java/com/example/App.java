@@ -20,21 +20,21 @@ public class App {
         Session session = HibernateUtil.get().openSession();
 
         Alquiler_Repo alquiler_Repo = new Alquiler_Repo(session);
-        alquiler_Repo.listarTodos();
+      //  alquiler_Repo.listarTodos();
 
         Libro_Repo libro_Repo = new Libro_Repo(session);
-        libro_Repo.listarTodos();
+       // libro_Repo.listarTodos();
 
         Cliente_Repo cliente_Repo = new Cliente_Repo(session);
         // cliente_Repo.obtenerCliente(2);
         Cliente cliente = new Cliente("3333", "Paxo", "paxostyles@gmail.com");
-     //   cliente_Repo.guardar(cliente);
+        cliente_Repo.guardar(cliente);
         // cliente_Repo.listarTodos();
         // cliente_Repo.eliminar(cliente_Repo.obtenerCliente(3));
         // cliente_Repo.listarTodos();
 
         Libro libro = new Libro("8888", "Los 8", "severiano", 1970);
-      //  libro_Repo.guardar(libro);
+        libro_Repo.guardar(libro);
         // libro_Repo.eliminar(libro_Repo.obtenerLibro(4));
         // libro_Repo.listarTodos();
 

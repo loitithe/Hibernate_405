@@ -16,9 +16,11 @@ public class Alquiler_Repo implements Repositorio<Alquiler> {
         Transaction trx = this.session.beginTransaction();
         List<Alquiler> listaAlquiler = session.createQuery("FROM Alquiler", Alquiler.class).getResultList();
         for (Alquiler alquiler : listaAlquiler) {
-            if (alquiler.equals(t)) {
-                t.setAlquilado(!t.isAlquilado());
-            }
+            if (alquiler.getIdAlquiler()==alquiler.getIdAlquiler()) {
+                t.setAlquilado(false);
+                this.session.update(t);
+
+            }else t.setAlquilado(true);
         }
         session.save(t);
         trx.commit();
